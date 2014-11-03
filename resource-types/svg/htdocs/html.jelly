@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<j:jelly xmlns:j="jelly:core">
+  <html xmlns="http://www.w3.org/1999/xhtml" xmlns:i18n="http://www.wyona.org/yanel/i18n/1.0">
+    <head>
+      <title>svg</title>
+    </head>
+    <body>
+      <h3>svg</h3>
+      <object id="testSVG" data="${yanel.back2realm}.${resource.getContentPath()}" type="image/svg+xml">
+        <img src="${yanel.back2realm}.${resource.getContentPath()}.png"/>
+      </object>
+      <br/>
+      <a href="${yanel.back2realm}.${resource.getContentPath()}">${yanel.back2realm}.${resource.getContentPath()}</a>
+      <h3>png</h3>
+      <img src="${yanel.back2realm}.${resource.getContentPath()}.png"/>
+      <br/>
+      <a href="${yanel.back2realm}.${resource.getContentPath()}.png">${yanel.back2realm}.${resource.getContentPath()}.png</a>
+      <h3>jpg</h3>
+      <img src="${yanel.back2realm}.${resource.getContentPath()}.jpg"/>
+      <br/>
+      <a href="${yanel.back2realm}.${resource.getContentPath()}.jpg">${yanel.back2realm}.${resource.getContentPath()}.jpg</a>
+    </body>
+  </html>
+</j:jelly>

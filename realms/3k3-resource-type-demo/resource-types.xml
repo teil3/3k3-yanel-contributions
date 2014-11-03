@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<resource-types xmlns="http://www.wyona.org/yanel/1.0">
+  <!-- HEADSUP: Make sure to add the trailing slash (/) in the @src attribute! -->
+  <resource-type src="/home/simon/src/3k3-yanel-contrib/resource-types/image/" compile="true"/>
+  <resource-type src="/home/simon/src/3k3-yanel-contrib/resource-types/svg/" compile="true"/>
+  <resource-type src="/home/simon/src/3k3-yanel-contrib/resource-types/svg-edit/" compile="true"/>
+  <resource-type src="/home/simon/src/3k3-yanel-contrib/resource-types/textedit/" compile="true"/>
+  <resource-type src="/home/simon/src/3k3-yanel-contrib/resource-types/imageutil/" compile="true"/>
+<!--  <resource-type src="/home/simon/src/3k3-yanel-contrib/resource-types/xForm/" compile="true"/>-->
+<!--  <resource-type src="/home/simon/src/3k3-yanel-contrib/resource-types/proxy/" compile="true"/>-->
+  <resource-type src="/home/simon/src/3k3-yanel-contrib/resource-types/imageGallery/" compile="true"/>
+  <resource-type src="/home/simon/src/3k3-yanel-contrib/resource-types/swfuploader/" compile="true"/>
+</resource-types>

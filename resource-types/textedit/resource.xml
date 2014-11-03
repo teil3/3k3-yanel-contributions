@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<resource xmlns="http://www.wyona.org/yanel/1.0"
+  name="textedit"
+  namespace="http://litwan.com/yanel/resource/1.0"
+  class="com.litwan.yanel.impl.resources.textedit.TextEditResource"
+  >
+<description>
+textEdit to edit xhtml
+</description>
+
+<rtd>
+<!--
+  <property name="foo" default-value="bar"/>
+-->
+</rtd>
+</resource>

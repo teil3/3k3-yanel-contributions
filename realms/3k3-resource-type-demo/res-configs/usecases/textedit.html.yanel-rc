@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<yanel:resource-config xmlns:yanel="http://www.wyona.org/yanel/rti/1.0">
+  <yanel:rti name="textedit" namespace="http://litwan.com/yanel/resource/1.0"/>
+    <yanel:property name="matcher-extension" value=".textedit.html"/>
+    <yanel:custom-config>
+     <views>
+      <view id="default" type="jelly-text">
+        <template>rthtdocs:/textedit.jelly</template>
+        <mime-type>text/html</mime-type>
+        <xslt>/xslt/global.xsl</xslt>
+      </view>
+      <view id="done" type="jelly-text">
+        <template>rthtdocs:/textedit-status.jelly</template>
+        <mime-type>text/html</mime-type>
+        <xslt>/xslt/global.xsl</xslt>
+      </view>
+      <view id="cancel" type="jelly-text">
+        <template>rthtdocs:/textedit-status.jelly</template>
+        <xslt>/xslt/global.xsl</xslt>
+        <mime-type>text/html</mime-type>
+      </view>
+    </views>
+  </yanel:custom-config>
+</yanel:resource-config>

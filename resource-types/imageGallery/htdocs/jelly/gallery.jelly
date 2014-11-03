@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<j:jelly xmlns:j="jelly:core">
+  <html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:i18n="http://www.wyona.org/yanel/i18n/1.0" 
+        xmlns:xi="http://www.w3.org/2001/XInclude"
+  >
+    <head/>
+    <body>
+      <div class="3k3_gallery_current_item" id="${resource.getCurrentImage().getId()}">
+        <img src="${resource.getCurrentImagePath()}" class="current"/>
+        <div class="3k3_gallery_current_text">
+          ${resource.getCurrentText()}
+        </div>
+      </div>
+      <div class="3k3_gallery_images">
+        <j:forEach var="image" items="${resource.getImages()}" varStatus="status">
+          <div class="3k3_gallery_image">
+            <img src="${image.getSrc()}" id="${image.getId()}" title="${status.getIndex()}" />
+            <ul>
+              <j:forEach var="key" items="${image.getKeys()}">
+                <li lang="${key.getLang()}">
+                  ${key.getText()}
+              </li>
+              </j:forEach>
+            </ul>
+          </div>
+        </j:forEach>
+      </div>
+    </body>
+  </html>
+</j:jelly>

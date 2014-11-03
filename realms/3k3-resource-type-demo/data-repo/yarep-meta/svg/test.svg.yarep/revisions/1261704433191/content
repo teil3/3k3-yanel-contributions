@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="svgroot" height="480" width="640">
+ <circle cx="282" cy="235" r="137" id="svg_1" fill="#FF0000" stroke="#000000" stroke-width="5" fill-opacity="1" stroke-opacity="1"/>
+ <path stroke-opacity="1" fill-opacity="1" stroke-width="5" stroke="#000000" fill="#FF0000" id="svg_2" d="M123,440 l-58,-71 l88,-182 l105,184 l-42,68 z"/>
+ <rect stroke-opacity="1" fill-opacity="1" stroke-width="1" stroke="#000000" fill="none" id="svg_3" height="73" width="73" y="74" x="34"/>
+ <rect id="svg_4" stroke-opacity="1" fill-opacity="1" stroke-width="1" stroke="#000000" fill="none" height="73" width="73" y="116" x="491"/>
+ <rect id="svg_5" stroke-opacity="1" fill-opacity="1" stroke-width="1" stroke="#000000" fill="none" height="73" width="73" y="372" x="440"/>
+ <path stroke-opacity="1" fill-opacity="1" stroke="#000000" fill="none" id="svg_6" d="M69,148 l0,70 l57,0"/>
+ <path stroke-opacity="1" fill-opacity="1" stroke="#000000" fill="none" id="svg_7" d="M529,190 l0,34 l-103,0"/>
+ <path stroke-opacity="1" fill-opacity="1" stroke="#000000" fill="none" id="svg_8" d="M478,448 l-1,16 l-357,-4 l1,-10"/>
+</svg>

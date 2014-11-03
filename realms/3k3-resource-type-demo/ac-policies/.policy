@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+
+<policy xmlns="http://www.wyona.org/security/1.0">
+
+  <usecase id="view">
+    <world permission="true"/>
+  </usecase>
+
+  <usecase id="yanel.resource.meta">
+    <world permission="true"/>
+  </usecase>
+
+  <usecase id="open">
+    <user id="litwan" permission="true"/>
+  </usecase>
+
+  <usecase id="write">
+    <user id="litwan" permission="true"/>
+  </usecase>
+
+  <usecase id="resource.create">
+    <user id="litwan" permission="true"/>
+  </usecase>
+
+  <usecase id="delete">
+    <user id="litwan" permission="true"/>
+  </usecase>
+
+  <usecase id="toolbar">
+    <user id="litwan" permission="true"/>
+  </usecase>
+
+  <usecase id="policy.read">
+    <user id="litwan" permission="true"/>
+  </usecase>
+
+  <usecase id="policy.update">
+    <user id="litwan" permission="true"/>
+  </usecase>
+
+  <usecase id="introspection">
+    <world permission="true"/>
+<!--
+    <user id="litwan" permission="true"/>
+-->
+  </usecase>
+
+  <usecase id="workflow.write">
+    <group id="example-group" permission="true"/>
+  </usecase>
+
+  <usecase id="workflow.approve">
+    <group id="example-group" permission="true"/>
+  </usecase>
+
+  <usecase id="workflow.publish">
+    <group id="example-group" permission="true"/>
+  </usecase>
+
+</policy>

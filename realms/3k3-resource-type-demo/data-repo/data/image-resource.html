@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>image</title>
+</head>
+<body>
+<h1>image</h1>
+<p>image Resource-Types Demo. for more information see: <a href="http://trac.yanel-contribution.3k3.org/wiki/image">http://trac.yanel-contribution.3k3.org/wiki/image</a></p>
+<p>Resizes, crops and watermarks images. Also converts image formats. from and to jpeg, png and gif. </p>
+
+    <dl>
+      <dt>
+        <h3>original image:</h3> <img src="images/twist-tower.jpg" alt="original image"/>
+      </dt>
+      <dd>
+        <h4>Configuration</h4>
+        https://svn.3k3.org/repos/public/yanel/realms/3k3-resource-type-demo/res-configs/images/twist-tower.jpg.yanel-rc
+        <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;yanel:resource-config xmlns:yanel=&quot;http://www.wyona.org/yanel/rti/1.0&quot;&gt;
+  &lt;yanel:rti name=&quot;image&quot; namespace=&quot;http://www.litwan.com/yanel/resource/1.0&quot;/&gt;
+  &lt;yanel:property name=&quot;allow-request-parameters&quot; value=&quot;false&quot;/&gt;
+&lt;/yanel:resource-config&gt;
+        </pre>
+      </dd>
+      <dt>
+        <h3>resized image:</h3> <img src="images/twist-tower-resized.jpg" alt="resized image"/>
+      </dt>
+      <dd>
+        <h4>Configuration</h4>
+        https://svn.3k3.org/repos/public/yanel/realms/3k3-resource-type-demo/res-configs/images/twist-tower-resized.jpg.yanel-rc
+        <pre>
+&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;yanel:resource-config xmlns:yanel=&quot;http://www.wyona.org/yanel/rti/1.0&quot;&gt;
+  &lt;yanel:rti name=&quot;image&quot; namespace=&quot;http://www.litwan.com/yanel/resource/1.0&quot;/&gt;
+  &lt;yanel:property name=&quot;allow-request-parameters&quot; value=&quot;true&quot;/&gt;
+  &lt;yanel:property name=&quot;prohibit-up-scale&quot; value=&quot;true&quot;/&gt;
+  &lt;yanel:property name=&quot;target-percentage&quot; value=&quot;50&quot;/&gt;
+  &lt;yanel:property name=&quot;yanel-path&quot; value=&quot;/images/twist-tower.jpg&quot;/&gt;
+&lt;/yanel:resource-config&gt;
+        </pre>
+      </dd>
+      <dt>
+        <h3>croped image:</h3> <img src="images/twist-tower-crop.jpg" alt="croped image"/>
+      </dt>
+      <dd>
+        <h4>Configuration</h4>
+        https://svn.3k3.org/repos/public/yanel/realms/3k3-resource-type-demo/res-configs/images/twist-tower-crop.jpg.yanel-rc
+        <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;yanel:resource-config xmlns:yanel=&quot;http://www.wyona.org/yanel/rti/1.0&quot;&gt;
+  &lt;yanel:rti name=&quot;image&quot; namespace=&quot;http://www.litwan.com/yanel/resource/1.0&quot;/&gt;
+  &lt;yanel:property name=&quot;target-width&quot; value=&quot;222&quot;/&gt;
+  &lt;yanel:property name=&quot;target-height&quot; value=&quot;222&quot;/&gt;
+  &lt;yanel:property name=&quot;crop-x&quot; value=&quot;40&quot;/&gt;
+  &lt;yanel:property name=&quot;crop-y&quot; value=&quot;27&quot;/&gt;
+  &lt;yanel:property name=&quot;crop-w&quot; value=&quot;222&quot;/&gt;
+  &lt;yanel:property name=&quot;crop-h&quot; value=&quot;222&quot;/&gt;
+  &lt;yanel:property name=&quot;yanel-path&quot; value=&quot;/images/twist-tower.jpg&quot;/&gt;
+&lt;/yanel:resource-config&gt;
+        </pre>
+      </dd>
+      <dt>
+        <h3>resized + watermarked image:</h3> <img src="images/twist-tower-watermark.jpg" alt="resized and watermarked image"/>
+      </dt>
+      <dd>
+        <h4>Configuration</h4>
+        https://svn.3k3.org/repos/public/yanel/realms/3k3-resource-type-demo/res-configs/images/images/twist-tower-watermark.jpg.yanel-rc        
+        <pre>
+&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;yanel:resource-config xmlns:yanel=&quot;http://www.wyona.org/yanel/rti/1.0&quot;&gt;
+  &lt;yanel:rti name=&quot;image&quot; namespace=&quot;http://www.litwan.com/yanel/resource/1.0&quot;/&gt;
+  &lt;yanel:property name=&quot;allow-request-parameters&quot; value=&quot;false&quot;/&gt;
+  &lt;yanel:property name=&quot;target-percentage&quot; value=&quot;50&quot;/&gt;
+  &lt;yanel:property name=&quot;yanel-path&quot; value=&quot;/images/twist-tower.jpg&quot;/&gt;
+  &lt;yanel:property name=&quot;watermark-path&quot; value=&quot;/images/3k3-logo-transp.png&quot;/&gt;
+  &lt;yanel:property name=&quot;watermark-position-y&quot; value=&quot;120&quot;/&gt;
+  &lt;yanel:property name=&quot;watermark-position-x&quot; value=&quot;50&quot;/&gt;
+  &lt;yanel:property name=&quot;watermark-transparency&quot; value=&quot;0.5&quot;/&gt;
+  &lt;yanel:property name=&quot;yanel-path-matcher&quot; value=&quot;/*/**.*&quot;/&gt;
+  &lt;yanel:property name=&quot;yanel-path-template&quot; value=&quot;/{2}.{3}&quot;/&gt;
+&lt;/yanel:resource-config&gt;
+        </pre>
+      </dd>
+      <dt>
+        <h3>converted image (jpg->png):</h3> <img src="images/twist-tower.png" alt="converted image"/>
+      </dt>
+      <dd>
+        <h4>Configuration</h4>
+        https://svn.3k3.org/repos/public/yanel/realms/3k3-resource-type-demo/res-configs/images/twist-tower.png.yanel-rc
+        <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;yanel:resource-config xmlns:yanel=&quot;http://www.wyona.org/yanel/rti/1.0&quot;&gt;
+  &lt;yanel:rti name=&quot;image&quot; namespace=&quot;http://www.litwan.com/yanel/resource/1.0&quot;/&gt;
+  &lt;yanel:property name=&quot;yanel-path&quot; value=&quot;/images/twist-tower.jpg&quot;/&gt;
+&lt;/yanel:resource-config&gt;
+        </pre>
+      </dd>
+    </dl>    
+</body>
+</html>

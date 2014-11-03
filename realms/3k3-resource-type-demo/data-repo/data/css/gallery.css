@@ -1,0 +1,25 @@
+#images_items {
+  list-style: none;
+  left:-16px;
+	position:relative;
+}
+
+#images_items li{
+  display: inline;
+  float:left;
+  list-style-type: none;
+	position:relative;
+}
+
+#images_items li a, #images_items li a span {
+	position:relative;
+	top:17px;
+	left:4px;
+	font-weight:bold;
+	 text-decoration:none;
+}
+
+#images_items li a:link {color: black; text-decoration:none; }
+#images_items li a:active {color:black; text-decoration:none; }
+#images_items li a:visited {color:black; text-decoration:none; }
+#images_items li a:hover {color:black; text-decoration: none;}

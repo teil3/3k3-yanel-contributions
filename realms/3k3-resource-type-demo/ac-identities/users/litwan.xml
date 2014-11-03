@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<user xmlns="http://www.wyona.org/security/1.0" id="litwan">
+<name>simon litwan</name>
+<email>simon@333.ch</email>
+<password algorithm="bcrypt-MD5">$2a$12$s7HGtlu5DIM.FwOzr9joregrmThTNG1BtqE1zrD1tH96Vch0fSC9S</password>
+<salt>dab7c985d2274413</salt>
+<aliases/>
+<groups/>
+</user>

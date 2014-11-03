@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<yanel:resource-config xmlns:yanel="http://www.wyona.org/yanel/rti/1.0">
+  <yanel:rti name="image" namespace="http://www.litwan.com/yanel/resource/1.0"/>
+  <yanel:property name="yanel-path-matcher" value="/galleries/**.jpg.min.jpg"/>
+  <yanel:property name="yanel-path-template" value="/galleries/{1}.jpg"/>
+  <yanel:property name="allow-request-parameters" value="true"/>
+  <yanel:property name="prohibit-up-scale" value="true"/>
+  <yanel:property name="target-width" value="44"/>
+  <yanel:property name="target-height" value="33"/>
+</yanel:resource-config>

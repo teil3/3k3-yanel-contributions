@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<yanel:resource-config xmlns:yanel="http://www.wyona.org/yanel/rti/1.0">
+  <yanel:rti name="imageGallery" namespace="http://www.litwan.com/yanel/resource/1.0"/>
+
+  <yanel:property name="mime-type" value="application/xhtml+xml"/>
+  <yanel:property name="gallery-base-node" value="/galleries/"/>
+  
+  <yanel:custom-config>
+    <views>
+      <view id="default" type="jelly">
+        <template>rthtdocs:/jelly/gallery.jelly</template>
+        <xslt>rthtdocs:/xslt/gallery.xsl</xslt>
+        <xslt>/xslt/gallery.xsl</xslt>
+        <xslt>/xslt/global.xsl</xslt>
+      </view>
+      <view id="create-gallery" type="jelly">
+        <template>rthtdocs:/jelly/create-gallery.jelly</template>
+        <xslt>rthtdocs:/xslt/create-gallery.xsl</xslt>
+        <xslt>/xslt/global.xsl</xslt>
+      </view>
+    </views>
+  </yanel:custom-config>  
+</yanel:resource-config>

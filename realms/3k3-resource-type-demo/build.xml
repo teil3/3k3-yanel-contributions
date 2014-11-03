@@ -1,0 +1,3 @@
+<project name="3k3-resource-type-demo-realm" default="deploy-jar">
+  <import file="${yanel.source.home}/src/build/realms/realm.build.xml"/>
+</project>

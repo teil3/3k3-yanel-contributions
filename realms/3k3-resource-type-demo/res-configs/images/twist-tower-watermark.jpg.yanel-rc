@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<yanel:resource-config xmlns:yanel="http://www.wyona.org/yanel/rti/1.0">
+  <yanel:rti name="image" namespace="http://www.litwan.com/yanel/resource/1.0"/>
+  <yanel:property name="allow-request-parameters" value="false"/>
+  <yanel:property name="target-percentage" value="50"/>
+  <yanel:property name="yanel-path" value="/images/twist-tower.jpg"/>
+  <yanel:property name="watermark-path" value="/images/3k3-logo-transp.png"/>
+  <yanel:property name="watermark-position-y" value="120"/>
+  <yanel:property name="watermark-position-x" value="50"/>
+  <yanel:property name="watermark-transparency" value="0.5"/>
+  <yanel:property name="yanel-path-matcher" value="/*/**.*"/>
+  <yanel:property name="yanel-path-template" value="/{2}.{3}"/>
+</yanel:resource-config>

@@ -1,0 +1,8 @@
+yarep_checkinDate<date>:2009-12-25T01:27:13+0000
+yarep_revisionCreator<string>:null
+yarep_type<string>:resource
+yarep_checkoutUserID<string>:null
+yarep_isCheckedOut<boolean>:false
+yarep_checkoutDate<date>:2009-12-25T02:25:16+0000
+yarep_revisionCreationDate<date>:2009-12-25T02:27:15+0000
+yarep_revisionComment<string>:Updated with tinyMCE

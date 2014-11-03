@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<resource xmlns="http://www.wyona.org/yanel/1.0"
+  name="ipn-listener"
+  namespace="http://litwan.com/yanel/resource/1.0"
+  class="com.litwan.yanel.impl.resources.ipnlistener.IPNListener"
+  >
+<description>
+basic paypal ipn listener
+</description>
+
+<rtd>
+<!--
+  <property name="foo" default-value="bar"/>
+-->
+</rtd>
+</resource>

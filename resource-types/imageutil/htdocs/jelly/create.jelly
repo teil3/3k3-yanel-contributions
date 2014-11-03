@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<j:jelly xmlns:j="jelly:core">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <link href="${yanel.back2realm}${yanel.reservedPrefix}/resource-types/^http:^2f^2fwww.litwan.com^2fyanel^2fresource^2f1.0::imageutil/jqueryUI/css/smoothness/jquery-ui-1.8.7.custom.css" rel="stylesheet" type="text/css"/>
+    <script src="${yanel.back2realm}${yanel.reservedPrefix}/resource-types/^http:^2f^2fwww.litwan.com^2fyanel^2fresource^2f1.0::imageutil/js/jquery.min.js"></script>
+    <script src="${yanel.back2realm}${yanel.reservedPrefix}/resource-types/^http:^2f^2fwww.litwan.com^2fyanel^2fresource^2f1.0::imageutil/jqueryUI/js/jquery-ui-1.8.7.custom.min.js"></script>  
+    
+    
+    <script language="Javascript">
+	    jQuery(window).load(function(){
+	        jQuery("#tabs").tabs({ disabled: [1,2,3,4,5] });
+	    });
+    </script>
+    <title>imageutil</title>
+  </head>
+  <body style="font-size:62.5%;">
+    <div id="tabs">
+    <ul>
+        <li><a href="#fragment-1"><span>Create</span></a></li>
+        <li><a href="#fragment-2"><span>Current Configuration</span></a></li>
+        <li><a href="#fragment-3"><span>Resize</span></a></li>
+        <li><a href="#fragment-4"><span>Crop</span></a></li>
+        <li><a href="#fragment-5"><span>Watermark</span></a></li>
+        <li><a href="#fragment-6"><span>More</span></a></li>
+    </ul>
+      <div id="fragment-1">
+        <form enctype="multipart/form-data" method="post">
+          <p>
+            <label for="file">File</label>
+            <input type="file" name="file" id="file" /> 
+          </p>
+          <p>
+            <label for="yanel.resource.imageutil.create.filename">Filename</label>
+            <input type="text" id="yanel.resource.imageutil.create.filename" name="yanel.resource.imageutil.create.filename" value="${resource.getFilename(resource.getEditPath())}" />
+          </p>
+          <p>
+            <label for="yanel.resource.imageutil.create.path">Create Path</label>
+            <input type="text" id="yanel.resource.imageutil.create.path" name="yanel.resource.imageutil.create.path" value="${resource.getPath(resource.getEditPath())}" />
+          </p>
+          <input type="hidden" name="yanel.usecase" value="create" />
+          <input type="submit" id="submit" name="yanel.resource.imageutil.create.save" value="Save" />
+        </form>
+      </div>
+      <div id="fragment-2">
+      </div>
+      <div id="fragment-3">
+      </div>
+      <div id="fragment-4">
+      </div>
+      <div id="fragment-5">
+      </div>
+      <div id="fragment-6">
+      </div>
+    </div>
+  </body>
+</html>
+
+</j:jelly>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<realm-config xmlns="http://www.wyona.org/yanel/realm/1.0">
+<name>3k3 Resource-Type Demo</name>
+<rti>config/rti-repository.xml</rti>
+<data>config/vfs-data-repository.xml</data>
+<ac-policies class="org.wyona.security.impl.PolicyManagerFactoryImplVersion2">config/ac-policies-repository.xml</ac-policies>
+<ac-identities>config/ac-identities-repository.xml</ac-identities>
+<default-language>en</default-language>
+<languages>
+<language>en</language>
+</languages>
+<translation-manager class="org.wyona.yanel.core.attributes.translatable.PrefixTranslationManager"/>
+<!-- <root-dir>/home/simon/src/yanel-projects/src/realms/3k3-resource-type-demo</root-dir> -->
+<menu class="com.litwan.yanel.servlet.menu.impl.ResourceTypeDemoMenu"/>
+</realm-config>

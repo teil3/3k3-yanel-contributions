@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<resource xmlns="http://www.wyona.org/yanel/1.0"
+  name="svg-edit"
+  namespace="http://www.litwan.com/yanel/resource/1.0"
+  class="com.litwan.yanel.impl.resources.svg.SvgEditResource"
+  >
+<description>
+svg-edit resource type (http://code.google.com/p/svg-edit/)
+</description>
+
+<rtd>
+<!--
+  <property name="foo" default-value="bar"/>
+-->
+</rtd>
+</resource>

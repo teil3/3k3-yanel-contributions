@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<yanel:resource-config xmlns:yanel="http://www.wyona.org/yanel/rti/1.0">
+  <yanel:rti name="image-resizer" namespace="http://www.litwan.com/yanel/resource/1.0"/>
+
+  <yanel:property name="allow-request-parameters" value="true"/>
+  <yanel:property name="prohibit-up-scale" value="true"/>
+  <yanel:property name="target-percentage" value="50"/>
+  <yanel:property name="yanel-path-matcher" value="/*/**.*"/>
+  <yanel:property name="yanel-path-template" value="/{2}.{3}"/>
+</yanel:resource-config>

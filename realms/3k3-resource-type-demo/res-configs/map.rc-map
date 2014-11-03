@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<rc-map>
+  <!-- TODO: Actually Xopus should be served from the xopus resource, but because of a Xopus bug one needs to add it here! -->
+  <matcher pattern="/Xopus**.html" rcpath="/node_yanel-rc.xml"/>
+
+  <matcher pattern="/**/create-new-page.html" rcpath="/create-new-page.html.yanel-rc"/>
+  <matcher pattern="**.svg.svg-edit.html" rcpath="/usecases/svg-edit.html.yanel-rc"/>
+  <matcher pattern="**.textedit.html" rcpath="/usecases/textedit.html.yanel-rc"/>
+  <matcher pattern="**.imageutil.html" rcpath="/usecases/imageutil.html.yanel-rc"/>
+  <matcher pattern="**.svg.png" rcpath="/svg.yanel-rc"/>
+  <matcher pattern="**.svg.jpg" rcpath="/svg.yanel-rc"/>
+  <matcher pattern="**.svg.html" rcpath="/svg.yanel-rc"/>
+  <matcher pattern="**.svg" rcpath="/svg.yanel-rc"/>
+  <matcher pattern="/image-resized/**.*" rcpath="/image-resizer.yanel-rc"/>
+  <matcher pattern="/galleries/**.jpg.min.jpg" rcpath="/rc/image.min.jpg.yanel-rc"/>
+  <matcher pattern="/galleries/*/**.html" rcpath="/rc/galleries.html.yanel-rc"/>
+  
+  <matcher pattern="/**.html" rcpath="/generic-xhtml-page_yanel-rc.xml"/>
+</rc-map>

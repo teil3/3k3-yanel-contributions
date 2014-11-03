@@ -1,0 +1,28 @@
+<svg width="640" height="480" id="svgroot" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <linearGradient y2="1.0" x2="1.0" y1="0.0" x1="0.0" id="svg_13">
+   <stop stop-opacity="1" stop-color="#ffffff" offset="0.0"/>
+   <stop stop-opacity="1" stop-color="#afafaf" offset="1.0"/>
+  </linearGradient>
+  <linearGradient y2="1.0" x2="1.0" y1="0.0" x1="0.0" id="svg_14">
+   <stop stop-opacity="1" stop-color="#ffffff" offset="0.0"/>
+   <stop stop-opacity="1" stop-color="#bababa" offset="1.0"/>
+  </linearGradient>
+  <linearGradient y2="1.0" x2="1.0" y1="0.0" x1="0" id="svg_15">
+   <stop stop-opacity="1" stop-color="#ffffff" offset="0.0"/>
+   <stop stop-opacity="1" stop-color="#bababa" offset="1.0"/>
+  </linearGradient>
+ </defs>
+ <circle stroke-opacity="1" fill-opacity="1" stroke-width="5" stroke="#000000" fill="#ff0000" id="svg_1" r="137" cy="235" cx="282"/>
+ <path d="M123,440 l-58,-71 l88,-182 l105,184 l-42,68 z" id="svg_2" fill="#FF0000" stroke="#000000" stroke-width="5" fill-opacity="1" stroke-opacity="1"/>
+ <rect x="37" y="86" width="73" height="73" id="svg_3" fill="url(#svg_13)" stroke="#000000" stroke-width="1" fill-opacity="1" stroke-opacity="1"/>
+ <rect x="485" y="116" width="73" height="73" fill="url(#svg_14)" stroke="#000000" stroke-width="1" fill-opacity="1" stroke-opacity="1" id="svg_4"/>
+ <rect x="442" y="370" width="73" height="73" fill="url(#svg_15)" stroke="#000000" stroke-width="1" fill-opacity="1" stroke-opacity="1" id="svg_5"/>
+ <path d="M72,160 l0,70 l57,0" id="svg_6" fill="none" stroke="#000000" fill-opacity="1" stroke-opacity="1"/>
+ <path d="M523,190 l0,34 l-103,0" id="svg_7" fill="none" stroke="#000000" fill-opacity="1" stroke-opacity="1"/>
+ <path d="M480,442 l-1,18 l-357,-4 l0,-16" id="svg_8" fill="none" stroke="#000000" fill-opacity="1" stroke-opacity="1"/>
+ <circle cx="288" cy="229" r="44" id="svg_9" fill="#0000ff" stroke="#000000" stroke-width="5" fill-opacity="1" stroke-opacity="1"/>
+ <text stroke-opacity="1" fill-opacity="1" text-anchor="middle" font-family="serif" font-size="48pt" stroke-width="0" stroke="#000000" fill="#000000" id="svg_10" y="152" x="72">A</text>
+ <text id="svg_11" stroke-opacity="1" fill-opacity="1" text-anchor="middle" font-family="serif" font-size="48pt" stroke-width="0" stroke="#000000" fill="#000000" y="181" x="521">B</text>
+ <text id="svg_12" stroke-opacity="1" fill-opacity="1" text-anchor="middle" font-family="serif" font-size="48pt" stroke-width="0" stroke="#000000" fill="#000000" y="436" x="479">C</text>
+</svg>

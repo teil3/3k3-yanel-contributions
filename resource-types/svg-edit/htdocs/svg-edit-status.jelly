@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<j:jelly xmlns:j="jelly:core">
+  <text>
+${resource.getErrorMessages()}${resource.getInfoMessages()}
+  </text>
+</j:jelly>

@@ -1,0 +1,7 @@
+yarep_revisionCreator<string>:litwan
+yarep_type<string>:resource
+yarep_checkoutUserID<string>:litwan
+yarep_isCheckedOut<boolean>:false
+yarep_checkoutDate<date>:2009-12-27T23:13:40+0000
+yarep_revisionCreationDate<date>:2009-12-27T23:46:04+0000
+yarep_revisionComment<string>:Updated with tinyMCE

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<policy xmlns="http://www.wyona.org/security/1.0">
+
+  <usecase id="view">
+    <world permission="false"/>
+    <user id="litwan" permission="true"/>
+  </usecase>
+
+</policy>

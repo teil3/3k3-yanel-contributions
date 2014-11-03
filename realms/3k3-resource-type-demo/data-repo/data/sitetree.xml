@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<sitetree xmlns="http://www.wyona.org/yanel/1.0">
+
+<node href="index.html">
+  <name>Home</name>
+  <node href="image-resizer.html">
+    <name>image-resizer (deprecated)</name>
+  </node>
+  <node href="image-resource.html">
+    <name>image</name>
+  </node>  
+  <node href="images/seilbahn.jpg.imageutil.html">
+    <name>imageutil</name>
+  </node>  
+  <node href="svg/test.svg.html">
+    <name>svg</name>
+  </node>
+  <node href="svg/test.svg.svg-edit.html">
+    <name>svg-edit</name>
+  </node>
+  <node href="textedit/example.xml.textedit.html">
+    <name>textedit</name>
+  </node>
+  <node href="galleries/test/1.html">
+    <name>gallery</name>
+  </node>
+</node>
+
+
+</sitetree>

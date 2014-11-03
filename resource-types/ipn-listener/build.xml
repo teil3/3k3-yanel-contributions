@@ -1,0 +1,3 @@
+<project name="yanel-ipn-listener-resource-type"  default="deploy-jar">
+  <import file="${yanel.source.home}/src/build/resource-types/resource-type.build.xml"/>
+</project>

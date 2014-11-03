@@ -1,0 +1,199 @@
+<?xml version="1.0"?>
+<j:jelly xmlns:j="jelly:core">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <link href="${yanel.back2realm}${yanel.reservedPrefix}/resource-types/^http:^2f^2fwww.litwan.com^2fyanel^2fresource^2f1.0::imageutil/jqueryUI/css/smoothness/jquery-ui-1.8.7.custom.css" rel="stylesheet" type="text/css"/>
+    <script src="${yanel.back2realm}${yanel.reservedPrefix}/resource-types/^http:^2f^2fwww.litwan.com^2fyanel^2fresource^2f1.0::imageutil/js/jquery.min.js"></script>
+    <script src="${yanel.back2realm}${yanel.reservedPrefix}/resource-types/^http:^2f^2fwww.litwan.com^2fyanel^2fresource^2f1.0::imageutil/jqueryUI/js/jquery-ui-1.8.7.custom.min.js"></script>
+  	<script src="${yanel.back2realm}${yanel.reservedPrefix}/resource-types/^http:^2f^2fwww.litwan.com^2fyanel^2fresource^2f1.0::imageutil/jquery-spinbox/jquery.spinbox.js"></script>
+  	<script src="${yanel.back2realm}${yanel.reservedPrefix}/resource-types/^http:^2f^2fwww.litwan.com^2fyanel^2fresource^2f1.0::imageutil/Jcrop/js/jquery.Jcrop.js"></script>
+  	<script src="${yanel.back2realm}${yanel.reservedPrefix}/resource-types/^http:^2f^2fwww.litwan.com^2fyanel^2fresource^2f1.0::imageutil/js/colorpicker/js/colorpicker.js"></script>
+   	<link rel="stylesheet" href="${yanel.back2realm}${yanel.reservedPrefix}/resource-types/^http:^2f^2fwww.litwan.com^2fyanel^2fresource^2f1.0::imageutil/Jcrop/css/jquery.Jcrop.css" type="text/css" />
+   	<link rel="stylesheet" href="${yanel.back2realm}${yanel.reservedPrefix}/resource-types/^http:^2f^2fwww.litwan.com^2fyanel^2fresource^2f1.0::imageutil/jquery-spinbox/jquery.spinbox.css" type="text/css" />  
+  <link rel="Stylesheet" type="text/css" href="${yanel.back2realm}${yanel.reservedPrefix}/resource-types/^http:^2f^2fwww.litwan.com^2fyanel^2fresource^2f1.0::imageutil/js/colorpicker/css/colorpicker.css" />
+
+		<script language="Javascript">
+		  var back2image = '${yanel.back2realm}';
+		  var imageUtilHtdocsPath = '${yanel.back2realm}${yanel.reservedPrefix}/resource-types/^http:^2f^2fwww.litwan.com^2fyanel^2fresource^2f1.0::imageutil/';
+      var jcropApi;
+      var origWidth = ${resource.getImageOrigWidth()};
+      var origHeight = ${resource.getImageOrigHeight()};
+      var targetWidth = ${resource.getImageTargetWidth()};
+      var targetHeight = ${resource.getImageTargetHeight()};
+      var imageCropX = ${resource.getImageCropX()};
+      var imageCropY = ${resource.getImageCropY()};
+      var imageCropW = ${resource.getImageCropW()};
+      var imageCropH = ${resource.getImageCropH()};
+      function openLookup(target_input_field_id) {
+          lookupOpener("${yanel.back2realm}", target_input_field_id);
+      }
+      
+		</script>  	
+  	<script src="${yanel.back2realm}${yanel.reservedPrefix}/resource-types/^http:^2f^2fwww.litwan.com^2fyanel^2fresource^2f1.0::imageutil/js/imageutil.js"></script>
+    <link rel="Stylesheet" type="text/css" href="${yanel.back2realm}${yanel.reservedPrefix}/resource-types/^http:^2f^2fwww.litwan.com^2fyanel^2fresource^2f1.0::imageutil/css/imageutil.css" />
+    <title>imageutil</title>
+  </head>
+  <body style="font-size:62.5%;">
+  
+    <div id="tabs">
+    <ul>
+        <li><a href="#fragment-1"><span>Current Configuration</span></a></li>
+        <li><a href="#fragment-2"><span>Resize</span></a></li>
+        <li><a href="#fragment-3"><span>Crop</span></a></li>
+        <li><a href="#fragment-4"><span>Watermark</span></a></li>
+        <li><a href="#fragment-5"><span>More</span></a></li>
+    </ul>
+      <div id="fragment-1">
+        <img src="${yanel.back2realm}${resource.getDataPath()}" />
+      </div>
+      <div id="fragment-2">
+        <form method="post" action="">
+      	  <input type="hidden" name="edit-path" value="${resource.getParameterAsString('edit-path')}"/>
+      	  <input type="hidden" name="yanel.resource.imageutil.resize.save"/>
+          <p><label for="fixaspectratio">aspect ratio</label>
+          <input type="checkbox" id="fixaspectratio"/></p>
+          <p><label for="resizewidth">resizewidth</label>
+        	<input type="text" name="resizewidth" id="resizewidth" class="spin" onchange="jQuery('#resizer').css('width',jQuery('#resizewidth').val()+'px');jQuery('div .ui-wrapper').css('width',jQuery('#resizewidth').val()+'px');oversizeWarn()"/></p>
+      	  <p><label for="resizeheight">resizeheight</label>
+        	<input type="text" name="resizeheight" id="resizeheight" class="spin" onchange="jQuery('#resizer').css('height',jQuery('#resizeheight').val()+'px');jQuery('div .ui-wrapper').css('height',jQuery('#resizeheight').val()+'px');oversizeWarn();"/></p>
+        	<p><input type="button" id="origsize" name="origsize" value="Original Size" /></p>
+        	<p id="oversize-warning">oversize warning</p>
+        	<p>
+          	<input type="submit" id="submit" name="submit" value="Save" />
+        	</p>
+      	</form>
+      	<div id="watermarking-holder-resize">
+          <img src="?yanel.resource.imageutil.watermark.supress" style="width:${resource.getImageTargetWidth()}px;height:${resource.getImageTargetHeight()}px;" id="resizer"/>
+          <div id="draggable-resize"></div>
+      	</div>
+      </div>
+      <div id="fragment-3">
+      	<form method="post" action="">
+      	  <input type="hidden" name="edit-path" value="${resource.getParameterAsString('edit-path')}"/>
+      	  <input type="hidden" name="yanel.resource.imageutil.crop.save"/>
+      	  <p><label for="x1">crop X</label>
+        	<input type="text" name="x1" id="x1" class="spin" onchange="jcropApi.setSelect([ jQuery('#x1').val(),jQuery('#y1').val(),jQuery('#x2').val(),jQuery('#y2').val() ]);"/></p>
+      	  <p><label for="y1">crop Y</label>
+        	<input type="text" name="y1" id="y1" class="spin"  onchange="jcropApi.setSelect([ jQuery('#x1').val(),jQuery('#y1').val(),jQuery('#x2').val(),jQuery('#y2').val() ]);"/></p>
+      	  <p><label for="x2">Crop Width</label>
+        	<input type="text" name="x2" id="x2" class="spin" onchange="jcropApi.setSelect([ jQuery('#x1').val(),jQuery('#y1').val(),jQuery('#x2').val(),jQuery('#y2').val() ]);" /></p>
+      	  <p><label for="y2">Crop Height</label>
+        	<input type="text" name="y2" id="y2" class="spin" onchange="jcropApi.setSelect([ jQuery('#x1').val(),jQuery('#y1').val(),jQuery('#x2').val(),jQuery('#y2').val() ]);"/></p>
+      	  <p><label for="fixaspectratio">aspect ratio 4:3</label>
+          <input type="checkbox" id="fixaspectratiocrop"/></p>
+        	<p>
+          	<input type="submit" id="submit" name="submit" value="Save" />
+        	</p>
+        	<img src="${yanel.back2realm}${resource.getDataPath()}?yanel.resource.image.show.original" id="cropimage"/>
+      	</form>
+      </div>
+      <div id="fragment-4">
+   	   <form method="post" action="">
+      	  <input type="hidden" name="edit-path" value="${resource.getParameterAsString('edit-path')}"/>
+      	  <input type="hidden" name="yanel.resource.imageutil.watermark.save"/>
+      	  <p><label for="watermark-path">watermark-path</label>
+        	<input type="text" name="watermark-path" id="watermark-path" value="${resource.getWatermarkPath()}"/>
+        	<input type="button" value="Browse" name="browse_watermark-path" onClick="openLookup('watermark-path')"/> 
+        	</p>
+      	  <p><label for="dragleft">watermark X</label>
+        	<input type="text" name="dragleft" id="dragleft"  class="spin" value="${resource.getWatermarkX()}"/></p>
+      	  <p><label for="dragtop">watermark Y</label>
+        	<input type="text" name="dragtop" id="dragtop"  class="spin" value="${resource.getWatermarkY()}"/></p>
+      	  <p><label for="watermark-transparency">watermark transparency</label>
+        	<input type="text" name="watermark-transparency" id="watermark-transparency" value="${resource.getWatermarkTransparency()}"/></p>
+          <p>
+          	<input type="submit" id="submit" name="submit" value="Save" />
+        	</p>
+      	</form>
+      	<div id="watermarking-holder">
+          <img src="?yanel.resource.imageutil.watermark.supress" style="width:${resource.getImageTargetWidth()}px;height:${resource.getImageTargetHeight()}px;" id="watermark-base"/>
+          <div id="draggable"></div>
+      	</div>
+      </div>
+      <div id="fragment-5">
+   	   <form method="post" action="">
+      	  <input type="hidden" name="edit-path" value="${resource.getParameterAsString('edit-path')}"/>
+      	  <input type="hidden" name="yanel.resource.imageutil.more.save"/>
+      	  <p><label for="yanel-path">yanel-path</label>
+        	<input type="text" name="yanel-path" id="yanel-path" value="${resource.getYanelPath()}"/>
+<!--        	<input type="button" value="Browse" name="browse_yanel-path" onClick="openLookup('yanel-path')"/> -->
+        	</p>
+      	  <p>
+      	    <label for="preserve-alpha">preserve-alpha
+      	    </label>
+      	      <j:choose>
+      	        <j:when test="${resource.getPreserveAlpha() == 'true'}">
+              	  <input type="checkbox" name="preserve-alpha" value="true" checked="checked"/>
+      	        </j:when>
+      	        <j:otherwise>
+		          	  <input type="checkbox" name="preserve-alpha" value="true"/>
+      	        </j:otherwise>
+      	      </j:choose>
+        	
+        	</p>
+      	  <p>
+      	    <label for="allow-request-parameters">allow-request-parameters</label>
+      	      <j:choose>
+      	        <j:when test="${resource.getAllowRequestParameters() == 'true'}">
+              	  <input type="checkbox"  value="true" name="allow-request-parameters" checked="checked"/>
+      	        </j:when>
+      	        <j:otherwise>
+              	  <input type="checkbox"  value="true" name="allow-request-parameters"/>
+      	        </j:otherwise>
+      	      </j:choose>
+        	</p>
+      	  <p>
+      	    <label for="prohibit-up-scale">prohibit-up-scale</label>
+      	      <j:choose>
+      	        <j:when test="${resource.getProhibitUpScale() == 'true'}">
+              	  <input type="checkbox"  value="true" name="prohibit-up-scale" checked="checked"/>
+      	        </j:when>
+      	        <j:otherwise>
+              	  <input type="checkbox"  value="true" name="prohibit-up-scale"/>
+      	        </j:otherwise>
+      	      </j:choose>
+        	</p>
+      	  <p>
+      	    <label for="disable-cache">disable-cache</label>
+     	      <j:choose>
+     	        <j:when test="${resource.getDisableCache() == 'true'}">
+             	  <input type="checkbox"  value="true" name="disable-cache" checked="checked"/>
+     	        </j:when>
+     	        <j:otherwise>
+             	  <input type="checkbox"  value="true" name="disable-cache"/>
+     	        </j:otherwise>
+     	      </j:choose>
+        	</p>
+      	  <p>
+      	    <label for="background-color">background-color</label>
+        	  <input type="text" name="background-color" id="backgroundcolor" value="${resource.getBackgroundColor()}"/>
+        	</p>
+      	  <p>
+      	    <label for="cache-root-path">cache-root-path</label>
+        	  <input type="text" name="cache-root-path" id="cache-root-path"  value="${resource.getCacheRootPath()}"/>
+        	</p>
+          <p>
+          	<input type="submit" id="submit" name="submit" value="Save" />
+        	</p>
+      	</form>
+          <p>
+            <form method="post" action="">
+              <input type="hidden" name="edit-path" value="${resource.getParameterAsString('edit-path')}"/>
+              <input type="hidden" name="yanel.resource.imageutil.rotate.save"/>
+              <label for="rotate">rotate</label>
+              <select size="1" name="rotate" id="rotate">
+                <option>${resource.getRotation()}</option>
+                <option>0</option>
+                <option>90</option>
+                <option>180</option>
+                <option>270</option>
+              </select>          
+              	<input type="submit" id="submit" name="submit" value="Save" />
+            </form>
+        	</p>
+      </div>
+    </div>
+  </body>
+</html>
+
+</j:jelly>

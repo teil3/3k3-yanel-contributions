@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><group id="example-group">
+<name>Example Group</name>
+<members>
+<member id="lenya" type="user"/>
+<member id="example-subgroup" type="group"/>
+</members>
+<parent-groups/>
+</group>

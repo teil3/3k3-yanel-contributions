@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<yanel:resource-config xmlns:yanel="http://www.wyona.org/yanel/rti/1.0">
+  <yanel:rti name="svg-edit" namespace="http://www.litwan.com/yanel/resource/1.0"/>
+    <yanel:property name="matcher-extension" value=".svg-edit.html"/>
+    <yanel:custom-config>
+     <views>
+      <view id="default" type="jelly-XML">
+        <template>rthtdocs:/svg-edit.jelly</template>
+        <mime-type>text/html</mime-type>
+      </view>
+      <view id="done" type="jelly-text">
+        <template>rthtdocs:/svg-edit-status.jelly</template>
+        <mime-type>text/plain</mime-type>
+        <serializer key="TEXT"/>
+      </view>
+      <view id="cancel" type="jelly-text">
+        <template>rthtdocs:/svg-edit-status-html.jelly</template>
+        <xslt>/xslt/global.xsl</xslt>
+        <mime-type>text/html</mime-type>
+      </view>
+    </views>
+  </yanel:custom-config>
+</yanel:resource-config>

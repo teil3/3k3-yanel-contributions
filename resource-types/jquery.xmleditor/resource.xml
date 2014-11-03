@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<resource xmlns="http://www.wyona.org/yanel/1.0"
+  name="jquery.xmleditor"
+  namespace="http://litwan.com/yanel/resource/1.0"
+  class="com.litwan.yanel.impl.resources.jqueryxmleditor.JqueryXmleditorResource"
+  >
+<description>
+jquery.xmleditor integration to edit xml files
+</description>
+
+<rtd>
+<!--
+  <property name="foo" default-value="bar"/>
+-->
+</rtd>
+</resource>

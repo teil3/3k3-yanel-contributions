@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<project name="imageGallery-dependencies" xmlns:artifact="antlib:org.apache.maven.artifact.ant">
+
+  <target name="dependencies" description="Dependencies">
+    <artifact:remoteRepository id="wyona.remote.repository" url="${maven.url}"/>
+
+    <artifact:dependencies pathId="maven2.classpath" filesetId="maven2.fileset">
+      <remoteRepository refid="wyona.remote.repository"/>
+      <dependency groupId="wyona-org-yanel" artifactId="yanel-core" version="${yanel.source.version}"/>
+      <dependency groupId="wyona-org-yanel" artifactId="yanel-impl" version="${yanel.source.version}"/>
+      <dependency groupId="wyona-org-yanel" artifactId="yanel-webapp" version="${yanel.source.version}"/>
+      <dependency groupId="apache-jakarta-commons" artifactId="apache-jakarta-commons-io" version="1.2"/>
+      <dependency groupId="apache-jakarta-commons" artifactId="apache-jakarta-commons-lang" version="2.1"/>
+      <dependency groupId="jstl" artifactId="jstl" version="1.1.2"/>
+      <dependency groupId="org.simpleframework" artifactId="simple-xml" version="2.4"/>
+      <dependency groupId="apache-jakarta-commons" artifactId="apache-jakarta-commons-id" version="0.1-dev-lcr357257"/>    	
+    </artifact:dependencies>
+
+    <artifact:dependencies pathId="maven2.resource.classpath" filesetId="maven2.resource.fileset">
+      <remoteRepository refid="wyona.remote.repository"/>
+      <dependency groupId="jstl" artifactId="jstl" version="1.1.2"/>
+      <dependency groupId="org.simpleframework" artifactId="simple-xml" version="2.4"/>
+    </artifact:dependencies>
+
+    <property name="maven2.cp" refid="maven2.classpath"/>
+    <!--<echo>Maven2 classpath: ${maven2.cp}</echo>-->
+  </target>
+
+</project>

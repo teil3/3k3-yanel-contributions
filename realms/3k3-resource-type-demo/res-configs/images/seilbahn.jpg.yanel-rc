@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<yanel:resource-config xmlns:yanel="http://www.wyona.org/yanel/rti/1.0">
+  <yanel:rti name="image" namespace="http://www.litwan.com/yanel/resource/1.0" />
+  <yanel:property name="target-width" value="728" />
+  <yanel:property name="target-height" value="235" />
+  <yanel:property name="yanel-path" value="" />
+  <yanel:property name="cache-root-path" value="" />
+  <yanel:property name="allow-request-parameters" value="true" />
+  <yanel:property name="disable-cache" value="true" />
+  <yanel:property name="crop-x" value="2" />
+  <yanel:property name="crop-y" value="186" />
+  <yanel:property name="crop-w" value="728" />
+  <yanel:property name="crop-h" value="235" />
+  <yanel:property name="watermark-path" value="/images/3k3-logo-transp.png" />
+  <yanel:property name="watermark-position-x" value="598" />
+  <yanel:property name="watermark-position-y" value="185" />
+  <yanel:property name="watermark-transparency" value="1" />
+  <yanel:property name="background-color" value="" />
+</yanel:resource-config>
