@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<resource xmlns="http://www.wyona.org/yanel/1.0"
+  name="tinymce4"
+  namespace="http://www.litwan.com/yanel/resource/1.0"
+  class="com.litwan.yanel.impl.resources.tinymce4.TinyMCE4Resource"
+  >
+<description>
+tinymce resource typ
+</description>
+
+<rtd>
+<!--
+  <property name="foo" default-value="bar"/>
+-->
+</rtd>
+</resource>
