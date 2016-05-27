@@ -4,13 +4,18 @@
 
 package com.litwan.yanel.impl.resources.proxy;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.net.URL;
 
 import javax.xml.transform.stream.StreamSource;
 
+import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 import org.w3c.tidy.Tidy;
 import org.wyona.yanel.core.source.SourceException;
@@ -26,6 +31,7 @@ public class ProxyResource extends BasicXMLResource {
 	public static final String CONFIG_PROPERTY_SOURCE_PATH = "source-path";
 	public static final String CONFIG_PROPERTY_INPUT_ENCODING = "input-encoding";
 	public static final String CONFIG_PROPERTY_OUTPUT_ENCODING = "output-encoding";
+	public static final String CONFIG_PROPERTY_USE_TIDY = "use-tidy";
     private static Logger log = Logger.getLogger(ProxyResource.class);
     
 
@@ -33,11 +39,50 @@ public class ProxyResource extends BasicXMLResource {
      * getContent from source-path as xml 
      */
     protected InputStream getContentXML(String viewId) throws Exception {
-    	InputStream contentStream = getContentFromUrl(getSourcePath());
-    	ByteArrayOutputStream out = (ByteArrayOutputStream)tidy(contentStream);
-    	return new ByteArrayInputStream(out.toByteArray());
+    	 return new URL( getSourcePath() ).openStream();
+//    	 try {
+//    	   System.out.println( IOUtils.toString( in ) );
+//    	 } finally {
+//    	   IOUtils.closeQuietly(in);
+//    	 }
+//    	 
+//    	InputStream contentStream = getContentFromUrl(getSourcePath());
+//    	if (getResourceConfigProperty(CONFIG_PROPERTY_USE_TIDY).equals("false")) {
+//    		return contentStream;
+//    	}
+//    	ByteArrayOutputStream out = (ByteArrayOutputStream)tidy( new URL( getSourcePath() ).openStream());
+//    	return new ByteArrayInputStream(out.toByteArray());
     }
     
+    private static String getStringFromInputStream(InputStream is) {
+
+		BufferedReader br = null;
+		StringBuilder sb = new StringBuilder();
+
+		String line;
+		try {
+
+			br = new BufferedReader(new InputStreamReader(is));
+			while ((line = br.readLine()) != null) {
+				sb.append(line);
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (br != null) {
+				try {
+					br.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		return sb.toString();
+
+	}
+
     /**
      * Tidy content
      * @return String wellformed by tidy
