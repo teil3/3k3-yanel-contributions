@@ -27,8 +27,15 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.Reader;
+import java.io.Writer;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
+import java.util.TimeZone;
 
 import javax.imageio.ImageIO;
 import javax.xml.transform.Source;
@@ -36,6 +43,7 @@ import javax.xml.transform.stream.StreamSource;
 
 import org.apache.log4j.Logger;
 import org.wyona.yanel.core.Resource;
+import org.wyona.yanel.core.api.attributes.ModifiableV2;
 import org.wyona.yanel.core.api.attributes.ViewableV2;
 import org.wyona.yanel.core.attributes.viewable.View;
 import org.wyona.yanel.core.attributes.viewable.ViewDescriptor;
@@ -48,7 +56,7 @@ import org.wyona.yarep.util.YarepUtil;
  * @author simon litwan
  *
  */
-public class ImageResource extends Resource implements ViewableV2  {
+public class ImageResource extends Resource implements ViewableV2, ModifiableV2  {
 
     public static final String CONFIG_PROPERTY_YANEL_PATH = "yanel-path";
     public static final String CONFIG_PROPERTY_YANEL_PATH_MATCHER = "yanel-path-matcher";
@@ -216,6 +224,22 @@ public class ImageResource extends Resource implements ViewableV2  {
             
         }
         defaultView.setMimeType(getMimeTypeByFormat(format));
+        
+        // INFO: Support Google Recommendations as of 2016: 
+        // 1) Expires: https://developers.google.com/speed/docs/insights/LeverageBrowserCaching
+        // 2) If-Modified-Since: https://varvy.com/ifmodified.html (See YanelServlet checking ModifiableV2)
+        try {
+        	int dayToExpire = 7;
+            if (getResourceConfigProperty("days-to-expiration") != null) {
+            	dayToExpire = new Integer(getResourceConfigProperty("days-to-expiration")).intValue();
+            }
+            Date expires = getDatePlusSomeDays(new Date(), dayToExpire);
+            String formattedExpiryDate = getHttpHeaderDate(expires);
+            getEnvironment().getResponse().setHeader("Expires", formattedExpiryDate);
+        } catch (Exception e) {
+            log.error(e,e);
+        }
+        
         try {
             cachePath = cache.getCachePath();
             Node cacheNode = repo.getNode(cachePath);
@@ -600,7 +624,121 @@ public class ImageResource extends Resource implements ViewableV2  {
         return pathParts[pathParts.length - 1];
     }
     
-    // Caching
+    
+    /**
+     * Get date in the future
+     * @param date Some date
+     * @param increment Additonal number of days
+     * @return date in the future
+     */
+    private Date getDatePlusSomeDays(Date date, int increment) {
+        Calendar cal = Calendar.getInstance(Locale.GERMANY);
+        cal.setTime(date);
+        cal.add(Calendar.DATE, increment);
+        return cal.getTime();
+    }
+
+    /**
+     * Get formatted date according to HTTP header definition
+     */
+    private String getHttpHeaderDate(Date date) {
+        SimpleDateFormat sdf = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss z");
+        sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
+        return sdf.format(date);
+    }
+    
+	/*
+	 * 
+	 * (non-Javadoc)
+	 * just implemented ModifiableV2 to allow Yanel to set not-modified-since
+	 * getLastModified() only methode needed for this
+	 */
+	@Override
+	public Reader getReader() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	/*
+	 * 
+	 * (non-Javadoc)
+	 * just implemented ModifiableV2 to allow Yanel to set not-modified-since
+	 * getLastModified() only methode needed for this
+	 */
+	@Override
+	public InputStream getInputStream() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	/*
+	 * 
+	 * (non-Javadoc)
+	 * just implemented ModifiableV2 to allow Yanel to set not-modified-since
+	 * getLastModified() only methode needed for this
+	 */
+	@Override
+	public Writer getWriter() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	/*
+	 * 
+	 * (non-Javadoc)
+	 * just implemented ModifiableV2 to allow Yanel to set not-modified-since
+	 * getLastModified() only methode needed for this
+	 */
+	@Override
+	public OutputStream getOutputStream() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	/*
+	 * 
+	 * (non-Javadoc)
+	 * just implemented ModifiableV2 to allow Yanel to set not-modified-since
+	 * getLastModified() only methode needed for this
+	 */
+	@Override
+	public void write(InputStream in) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	/*
+	 * 
+	 * (non-Javadoc)
+	 * just implemented ModifiableV2 to allow Yanel to set not-modified-since
+	 * getLastModified() only methode needed for this
+	 */
+	@Override
+	public long getLastModified() throws Exception {
+		String yanelPath = getDataPath();
+        Repository repo= getRealm().getRepository();
+        Repository rcRepo= getRealm().getRTIRepository();		
+        Node contentNode = repo.getNode(yanelPath);
+        long rcNodeLastModified = 0;
+        try {
+        	Node rcNode = rcRepo.getNode(yanelPath + ".yanel-rc");
+        	rcNodeLastModified = rcNode.getLastModified();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+        long contentNodeLastModified = contentNode.getLastModified();
+		if (contentNodeLastModified > rcNodeLastModified) {
+			return contentNodeLastModified;
+		}
+		return rcNodeLastModified;
+        
+	}
+	@Override
+	public boolean delete() throws Exception {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
     
 
     
